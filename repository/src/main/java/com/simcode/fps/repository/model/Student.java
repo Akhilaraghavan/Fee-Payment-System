@@ -18,8 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
-@Table
-@Entity(name="STUDENTS")
+@Table(name="STUDENTS")
+@Entity
 public class Student implements Serializable {
 	
 	/**

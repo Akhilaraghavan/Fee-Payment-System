@@ -92,6 +92,10 @@ public class FeePaymentController {
 		
 		Student student = studentService.findStudentById(studentId);
 		StudentDues studentDues = student.getStudentDues();
+		if (studentDues == null) {
+			studentDues = new StudentDues();
+			studentDues.setStudent(student);
+		}
 		studentDues.setAmountDue(new BigDecimal(studentDue.getAmountDue()));
 		
 		studentService.saveDues(studentDues);

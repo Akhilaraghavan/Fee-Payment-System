@@ -15,8 +15,12 @@ $(document).ready(function() {
 	
     $('#feeModal').on('show.bs.modal', function (e) {
     	var id = $('#feeId').val();
+    	var balance = $('#balance').val();
+    	if (balance == "") {
+    		alert("Outstanding balance cannot be empty");
+    		return;
+    	}
     	var url =  id == '' ? "/api/editFeeStructure" : "/api/editFeeStructure?id="+id;
-        console.log(url)
     	$.ajax({
             type: "GET",
             contentype: "application/json",
@@ -48,21 +52,18 @@ $(document).ready(function() {
     
     $('#saveAmountDue').on('click', function() {
     	var balance = $('#balance').val();
-    	var studentId = $('#studentId').val();
-    	alert(balance);
-    	var data = {"studentId" : studentId, "balance":balance};
-    	
+    	var studentId = $('#studentID').val();
+    	if (balance == "") {
+    		alert("Outstanding balance cannot be empty");
+    		return;
+    	}
+    	var data = {"studentId" : studentId, "amountDue":balance};
     	$.ajax({
             type: "POST",
             url: "/api/saveAmountDue",
             data:data
-          }).done(function(data) {
-        	  
           });
-
     });
-    
-    
     	
 });
 

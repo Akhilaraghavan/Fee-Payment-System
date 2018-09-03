@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.simcode.fps.exception.StudentNotFoundException;
+import com.simcode.fps.repository.GenericRepository;
 import com.simcode.fps.repository.StudentRepository;
 import com.simcode.fps.repository.model.Student;
 import com.simcode.fps.repository.model.Student.Standard;
@@ -19,6 +20,9 @@ public class StudentService implements IStudentService {
 	@Autowired
 	private StudentRepository studentRepository;
 
+	@Autowired
+	private GenericRepository<StudentDues> studentDuesRepository;
+	
 	@Override
 	public List<Student> getAllStudents() {
 		return studentRepository.findAll();
@@ -39,11 +43,6 @@ public class StudentService implements IStudentService {
 		return studentRepository.saveAndFlush(student);
 	}
 
-	
-	@Override
-	public Student saveDues(StudentDues studentDues) {
-		return studentRepository.saveAndFlush(studentDues);
-	}
 	@Override
 	public Student findStudentById(long id) throws StudentNotFoundException {
 		Optional<Student> optional = studentRepository.findById(id);
@@ -62,6 +61,11 @@ public class StudentService implements IStudentService {
 	@Override
 	public List<Student> findStudentsWithDues() {
 		return studentRepository.findAllStudentsWithDues();
+	}
+
+	@Override
+	public void saveDues(StudentDues studentDues) {
+		studentDuesRepository.save(studentDues);
 	}
 
 

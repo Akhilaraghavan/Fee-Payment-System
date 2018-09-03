@@ -22,6 +22,6 @@ public interface IStudentService {
 
 	List<Student> findStudentsWithDues();
 
-	Student saveDues(StudentDues studentDues);
+	void saveDues(StudentDues studentDues);
 	
 }

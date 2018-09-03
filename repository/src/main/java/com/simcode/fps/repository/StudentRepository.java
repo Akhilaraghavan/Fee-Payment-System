@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.simcode.fps.repository.model.Student;
 import com.simcode.fps.repository.model.Student.Standard;
-import com.simcode.fps.repository.model.StudentDues;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
@@ -20,7 +19,5 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	@Query("select d.student from StudentDues d where d.amountDue >0 order by d.amountDue desc")
 	List<Student> findAllStudentsWithDues();
-	
-	Student saveAndFlush(StudentDues studentDues);
 	
 }
