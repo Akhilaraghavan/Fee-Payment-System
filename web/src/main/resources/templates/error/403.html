@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee Payment System</title>
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="fragments/loginheader::header"></div>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>403 - Access is denied</h1>
+        <div th:inline="text">'[[${#httpServletRequest.remoteUser}]]', 
+                you do not have permission to access this page.</div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/loginheader::footer-fragment"></div>
+
+</body>
+</html>

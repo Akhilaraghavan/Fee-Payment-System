@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee Payment System</title>
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/css/header.css" rel="stylesheet">
+<link href="static/css/sidebar.css" rel="stylesheet" />
+<link href="static/css/home.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div th:replace="fragments/sidebar::sidebar"></div>
+
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			<h3>User profile</h3>
+			<form class="needs-validation" method="post"
+				th:action="@{/updateUserProfile}">
+		
+				<input type="text" class="form-control" name="id" id="id"
+					placeholder="" value="" th:value="${userDto.id}" hidden="true">
+		
+				<div class="row">
+					<div class="col-md-4 mb-3">
+						<label for="username">User name</label> <input type="text"
+							class="form-control" name="username" id="username" placeholder=""
+							value="" required th:value="${userDto.username}" readonly="true">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 mb-3">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" name="password" id="password" placeholder=""
+							value="" required th:value="${userDto.password}">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 mb-3">
+						<label for="email">Email <span class="text-muted"></span></label>
+						<input type="email" class="form-control" id="email" name="email"
+							placeholder="you@example.com" required th:value="${userDto.email}">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-10">
+						<a href="/login" class="btn btn-primary">Cancel</a>
+						<button type="submit" class="btn btn-primary">Sign Up</button>
+					</div>
+				</div>
+			</form>
+			</main>
+		</div>
+	</div>
+
+	<div th:replace="fragments/header::footer-fragment"></div>
+</body>

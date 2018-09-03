@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee Payment System</title>
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/css/header.css" rel="stylesheet">
+<link href="static/css/home.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="fragments/loginheader::header"></div>
+	<div class="container-fluid">
+		<div class="row">
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			<h3>Login</h3>
+			
+		<div th:if="${#fields.hasErrors('${loginForm}')}">
+		<div class="row">
+					<div class="col-md-4 mb-3">
+					<p>Incorrect username or password</p>
+				</div>
+				</div>
+		</div>
+		
+			<form  th:object="${loginForm}" class="needs-validation" method="post" th:action="@{/login}">
+				<div class="row">
+					<div class="col-md-4 mb-3">
+						<label for="username">User name</label> <input type="text"
+							class="form-control" name="username" id="username" placeholder=""
+							value="" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 mb-3">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" name="password" id="password" placeholder=""
+							value="">
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-primary">Sign in</button>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-10">
+						<a href="/forgotPassword" >Forgot Password</a>
+					</div>
+					<div class="col-sm-10">
+						<a th:href="@{/signup}">New User? Sign up</a>
+					</div>
+				</div>
+			</form>
+			</main>
+		</div>
+	</div>
+	<div th:replace="fragments/loginheader::footer-fragment"></div>
+</body>
+</html>

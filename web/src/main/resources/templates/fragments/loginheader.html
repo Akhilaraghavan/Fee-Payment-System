@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fee Payment System</title>
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/header.css" rel="stylesheet">
+	<link href="static/css/sidebar.css" rel="stylesheet" />
+</head>
+<body>
+	<!-- Navigation bar -->
+	<nav class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow navbar-bg"
+		th:fragment="header">
+		<img src="icons/logo.png" width="75" height="75" /> <a
+			class="navbar-brand text-dark float-left" href="#">Fee
+			Payment System</a> 
+	</nav>
+	
+	
+	<div th:fragment="footer-fragment">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="static/js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+		<script>
+			feather.replace()
+		</script>
+
+		<footer class="page-footer font-small" style="background-color=rgba(180,215,192, 1)">
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				© 2018 Copyright: <a href="#"> The Modern English School</a>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+
+	</div>
+</body>
+</html>

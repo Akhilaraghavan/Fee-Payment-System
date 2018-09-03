@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<nav class="col-md-2 d-none d-md-block sidebar" th:fragment="sidebar">
+		<div class="sidebar-sticky">
+			<h6
+				class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+				<span>Student Details</span> <a
+					class="d-flex align-items-center text-muted" href="#">
+				</a>
+			</h6>
+
+			<ul class="nav nav-list">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/home}"> <span data-feather="home"></span>
+						Dashboard <span class="sr-only">(current)</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/addstudent}"> <span data-feather="user-plus"></span> Add
+						new student
+				</a></li>
+
+				<li class="nav-item nav-link" data-toggle="collapse" data-target="#list"> Students list
+					<ul class="nav nav-list" th:classappend="${standard} ==null? collapse : ''" id="list">
+
+						<li class="nav-item"><a class="nav-link"  th:classappend="${standard}=='NURSERY' ? active : ''"
+							th:href="@{/api/liststudents?standard=NURSERY}">
+								<span data-feather="user"></span> NURSERY
+						</a></li>
+						
+						<li class="nav-item"><a class="nav-link"  th:classappend="${standard}=='LKG' ? active : ''"
+							th:href="@{/api/liststudents?standard=LKG}">
+								<span data-feather="user"></span> LKG
+						</a></li>
+						
+						<li class="nav-item"><a class="nav-link"  th:classappend="${standard}=='UKG' ? active : ''"
+							th:href="@{/api/liststudents?standard=UKG}">
+								<span data-feather="user"></span> UKG
+						</a></li>
+						
+						<li class="nav-item"><a class="nav-link"  th:classappend="${standard}=='I' ? active : ''"
+							th:href="@{/api/liststudents?standard=I}">
+								<span data-feather="user"></span> I Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:classappend="${standard}=='II' ? active : ''"
+							th:href="@{/api/liststudents?standard=II}">
+								<span data-feather="user"></span> II Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:classappend="${standard}=='III' ? active : ''"
+							th:href="@{/api/liststudents?standard=III}">
+								<span data-feather="user"></span> III Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:classappend="${standard}=='IV' ? active : ''"
+							th:href="@{/api/liststudents?standard=IV}">
+								<span data-feather="user"></span> IV Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:classappend="${standard}=='V' ? active : ''"
+							th:href="@{/api/liststudents?standard=V}">
+								<span data-feather="user"></span> V Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link"th:classappend="${standard}=='VI' ? active : ''"
+							th:href="@{/api/liststudents?standard=VI}">
+								<span data-feather="user"></span> VI Standard
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:classappend="${standard}=='VII' ? active : ''"
+							th:href="@{/api/liststudents?standard=VII}">
+								<span data-feather="user"></span> VII Standard
+						</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<h6
+				class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+				<span>Fees</span> <a class="d-flex align-items-center text-muted"
+					href="#"> <span data-feather="plus-circle"></span>
+				</a>
+			</h6>
+			<ul class="nav flex-column">
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/feestructure}"> <span data-feather="file-text"></span>
+						Fee Structure
+				</a></li>
+			</ul>
+
+			<h6	
+				class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+				<span>Users</span> <a class="d-flex align-items-center text-muted"
+					href="#"> <span data-feather="plus-circle"></span>
+				</a>
+			</h6>
+			<ul class="nav flex-column mb-2">
+				<li class="nav-item"><a class="nav-link" th:href="@{/profile}"> <span
+						data-feather="file-text"></span> Profile
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+</body>
+</html>
