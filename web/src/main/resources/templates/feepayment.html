@@ -30,17 +30,18 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<h4 th:inline="text">Outstanding Balance:</h4>
+					<input type="hidden"
+								th:value="${student}==null? '' : ${student.id}" id="studentID" />
 					<div class="row">
-
-						<input type="hidden"
-							th:value="${student}==null? '' : ${student.id}" id="studentID" />
-						<input type="text" class="form-control" name="balance"
-							id="balance" placeholder="" value=""
-							th:value="${studentDues}==null? '' : ${studentDues.amountDue}"
-							pattern="[0-9]+(\.[0-9]{1,2})?" required> 
-							
-							<a href="#"
-							id="saveAmountDue">Save</a>
+						<div class="col-md-6 mb-3">
+							<input type="text" class="form-control" name="balance"
+								id="balance" placeholder="" value=""
+								th:value="${studentDues}==null? '' : ${studentDues.amountDue}"
+								pattern="[0-9]+(\.[0-9]{1,2})?" required> 
+						</div>
+						<div class="col-md-4 mb-3">
+							<a href="#" id="saveAmountDue" class="btn btn-primary pull-right">Save</a>
+						</div>
 					</div>
 				</div>
 			</div>
