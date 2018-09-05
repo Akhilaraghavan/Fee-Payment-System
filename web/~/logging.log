@@ -17,3 +17,5 @@
 2018-08-30 12:56:47 ERROR UserAuthenticationFailureHandler:21 - 
 2018-08-30 13:03:56 ERROR UserAuthenticationFailureHandler:21 - failed to lazily initialize a collection of role: com.simcode.fps.repository.model.User.roles, could not initialize proxy - no Session
 2018-08-30 13:03:57 ERROR UserAuthenticationFailureHandler:21 - failed to lazily initialize a collection of role: com.simcode.fps.repository.model.User.roles, could not initialize proxy - no Session
+2018-09-04 13:51:30 ERROR UserAuthenticationFailureHandler:21 - 
+2018-09-04 16:41:55 ERROR UserAuthenticationFailureHandler:21 - 
