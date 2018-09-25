@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.simcode.fps.FeePaymentWrapper;
 import com.simcode.fps.exception.FeeStructureNotFoundException;
 import com.simcode.fps.exception.StudentNotFoundException;
 import com.simcode.fps.repository.FeePaymentRepository;
@@ -65,24 +66,6 @@ public class FeePaymentService implements IFeePaymentService {
 		return new FeePaymentWrapper(student, feePaymentRepository.getFeePaymentsByStudent(student));
 	}
 	
-	
-	public class FeePaymentWrapper {
-		private Student student;
-		private List<FeePayment> feePayments;
-		public FeePaymentWrapper(Student student, List<FeePayment> feePayments) {
-			super();
-			this.student = student;
-			this.feePayments = feePayments;
-		}
-		public Student getStudent() {
-			return student;
-		}
-		public List<FeePayment> getFeePayments() {
-			return feePayments;
-		}
-		
-	}
-
 	@Override
 	public FeePaymentWrapper saveFeePayment(Long studentId, BigDecimal balance, FeePayment feePayment) throws StudentNotFoundException {
 		Optional<Student> optional = studentRepository.findById(studentId);

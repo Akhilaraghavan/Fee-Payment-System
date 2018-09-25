@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.simcode.fps.FeePaymentWrapper;
 import com.simcode.fps.exception.StudentNotFoundException;
 import com.simcode.fps.repository.model.FeePayment;
 import com.simcode.fps.repository.model.Student;
 import com.simcode.fps.repository.model.StudentDues;
 import com.simcode.fps.service.impl.FeePaymentService;
-import com.simcode.fps.service.impl.FeePaymentService.FeePaymentWrapper;
 import com.simcode.fps.service.impl.StudentService;
 import com.simcode.fps.web.dto.FeePaymentDto;
 import com.simcode.fps.web.receipt.ReceiptGenerator;

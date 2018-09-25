@@ -38,6 +38,7 @@ public class StudentDto {
 	private String country;
 	private String phoneNumber;
 	private String id;
+	private String version;
 	
 	public String getFirstName() {
 		return firstName;
@@ -277,6 +278,15 @@ public class StudentDto {
 		this.id = id;
 	}
 
+	public String getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
 
 	public Student createEntity() {
 		Student student = new Student();
@@ -291,6 +301,11 @@ public class StudentDto {
 		if (religion != null && !religion.isEmpty()) {
 			student.setReligion(religion);
 		}
+		
+		if (version !=null && !version.isEmpty()) {
+			student.setVersion(getValue(version, Long.class));
+		}
+		
 		student.setFirstName(firstName);
 		student.setLastName(lastName);
 		student.setMiddleName(middleName);
@@ -346,6 +361,7 @@ public class StudentDto {
 		setId(String.valueOf(student.getId()));
 		setAdharId(String.valueOf(student.getAdharId()));
 		setEnrollmentId(String.valueOf(student.getEnrollmentId()));
+		setVersion(String.valueOf(student.getVersion()));
 		
 		setFirstName(student.getFirstName());
 		setMiddleName(student.getMiddleName());

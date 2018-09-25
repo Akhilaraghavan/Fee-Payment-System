@@ -24,8 +24,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.simcode.fps.web.service.LoginDetailsService;
@@ -50,6 +52,9 @@ public class ApplicationConfigurer extends WebSecurityConfigurerAdapter implemen
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private LogoutHandler logoutHandler;
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO: authenticate
@@ -62,9 +67,12 @@ public class ApplicationConfigurer extends WebSecurityConfigurerAdapter implemen
 			.formLogin().loginPage("/login")
 			.successHandler(authenticationSuccessHandler)
 			.failureHandler(authenticationFailureHandler)
+			.successForwardUrl("/home")
 			.defaultSuccessUrl("/home").permitAll()
-			.and().logout().logoutSuccessUrl("/login")
+			.and().logout()
+			.logoutSuccessUrl("/login")
 			.logoutUrl("/logout")
+			.addLogoutHandler(logoutHandler)
 			.invalidateHttpSession(true)
 			.deleteCookies("JSESSIONID")
 			.clearAuthentication(true)
@@ -122,6 +130,10 @@ public class ApplicationConfigurer extends WebSecurityConfigurerAdapter implemen
 		return new LoginDetailsService();
 	}
 
+	@Bean
+	public LogoutHandler getLogoutHandler() {
+		return new UserLogoutHandler();
+	}
 	/**
 	 * Why do the voters return ACCESS_DENIED??
 	 * 
@@ -138,4 +150,8 @@ public class ApplicationConfigurer extends WebSecurityConfigurerAdapter implemen
         return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher());
     }
 
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/error").setViewName("error");
+	}
 }

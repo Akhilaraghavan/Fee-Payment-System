@@ -9,6 +9,7 @@
 <link href="static/css/header.css" rel="stylesheet">
 <link href="static/css/sidebar.css" rel="stylesheet" />
 <link href="static/css/home.css" rel="stylesheet" />
+<link href="static/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 <body>
 	<div th:replace="fragments/header::header"></div>
@@ -248,7 +249,11 @@
 						<div class="col-md-4 mb-3 ">
 							<input type="text" class="form-control" name="id" id="id"
 								th:value="${studentDto.id}" hidden="true">
+								
+							<input type="text" class="form-control" name="version" id="version"
+								th:value="${studentDto.version}" hidden="true">
 						</div>
+					
 					</div>
 
 				</div>

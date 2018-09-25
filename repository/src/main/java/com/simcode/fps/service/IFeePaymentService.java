@@ -3,11 +3,11 @@ package com.simcode.fps.service;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.simcode.fps.FeePaymentWrapper;
 import com.simcode.fps.exception.FeeStructureNotFoundException;
 import com.simcode.fps.exception.StudentNotFoundException;
 import com.simcode.fps.repository.model.FeePayment;
 import com.simcode.fps.repository.model.Fees;
-import com.simcode.fps.service.impl.FeePaymentService.FeePaymentWrapper;
 
 public interface IFeePaymentService {
 
